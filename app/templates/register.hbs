@@ -1,0 +1,14 @@
+<div class="register">
+  <h3>Registrieren</h3>
+  <form class="form" role="form" accept-charset="UTF-8">
+    <label>Email:</label>
+    {{input value=username class="form-control"  placeholder="Enter email"}}
+    <label>Passwort:</label>
+    {{input type="password" value=pwd class="form-control" placeholder="Enter password"}}
+    <label>Wiederhole Passwort:</label>
+    {{input type="password" value=pwd_conf class="form-control" placeholder="Confirm password"}}
+  </form>
+  <div class="form-group">
+    <button class="btn btn-primary btn-block" {{action "sendData"}}>Registrieren</button>
+  </div>
+</div>

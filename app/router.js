@@ -6,6 +6,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  // this.route('register', { path: 'register/:username'});
+  this.route('register', function() {
+    this.route('submitInput');
+  });
 });
 
 export default Router;
