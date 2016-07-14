@@ -1,0 +1,87 @@
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+  background-color: black;
+  padding: 5px;
+  font-family: arial;
+}
+.navbar-right {
+  width: 124px;
+  height: 50px;
+}
+
+#login {
+  padding-left: 20px;
+  text-align: right;
+}
+#account .dropdown-menu, #login .dropdown-menu {
+  color: #fff;
+  min-width: 200px;
+
+  font-family: arial;
+  padding: 5px;
+  overflow: hidden;
+}
+#account .btn {
+  margin-top: 30px;
+}
+#account .row p {
+  font-family: arial;
+}
+#account .text-center {
+  color: white;
+}
+.imageUpload {
+  padding-top: 5px;
+}
+.hidden {
+  visibility: hidden;
+}
+.register {
+  font-family: arial;
+  width: 400px;
+  height: 400px;
+
+  position: relative;
+  top: 150px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.register h3 {
+  text-align: center;
+font-size: 26px;
+}
+.register .btn {
+  border-radius: 1px;
+}
+.register .form {
+  color: #337ab7;
+  margin: 10px;
+
+}
+.register .form-control {
+  border-radius: 1px;
+  border-width: 2px;
+  border-color: grey;
+}
+.register .form-group {
+
+  margin: 10px;
+}
+.online-container {
+  font-family: arial;
+  position: relative;
+  top: 100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.online-container li{
+  font-size: 25px;
+}
+#avatar img{
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+}
