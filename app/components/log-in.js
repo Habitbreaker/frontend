@@ -8,19 +8,7 @@ export default Ember.Component.extend({
     }
     return true;
   }.property(),
-  avatarURL: function() {
-    var this_comp = this;
-    this.get('ajax').request('users/downloadImg', {
-      method: 'POST',
-      data: {
-        id: this_comp.userid
-      }
-    }).then(function(result) {
-      console.log(result.url);
-      this_comp.set('avatarURL', result.url);
-      return result.url;
-    });
-  }.property(),
+  avatarURL: null,
   username: null,
   ajax: Ember.inject.service(),
   userid: null,
@@ -64,6 +52,20 @@ export default Ember.Component.extend({
         this.set('userid', Cookies.get('userid'));
         this.set('username', Cookies.get('username'));
       }
+      this.send('getAvatar');
+    },
+
+    getAvatar() {
+      var this_comp = this;
+      this.get('ajax').request('users/downloadImg', {
+        method: 'POST',
+        data: {
+          id: this_comp.userid
+        }
+      }).then(function(result) {
+        console.log(result.url);
+        this_comp.set('avatarURL', result.url);
+      });
     },
 
     logout() {
