@@ -63,7 +63,6 @@ export default Ember.Component.extend({
           id: this_comp.userid
         }
       }).then(function(result) {
-        console.log(result.url);
         this_comp.set('avatarURL', result.url);
       });
     },
