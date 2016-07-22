@@ -1,0 +1,9 @@
+{{#leaflet-map lat=lat lng=lng zoom=zoom onZoomend=(action "updateZoom") onMoveend=(action "updateCenter")}}
+  {{tile-layer url="http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png" }}
+
+  {{#marker-layer lat=gefasoft.lat lng=gefasoft.lng popupOpen=(readonly gefasoft.isOpen) onDblclick=(action "zoomIn")}}
+    <h3>{{gefasoft.name}}</h3>
+    <p>{{gefasoft.adr}}</p>
+  {{/marker-layer}}
+
+{{/leaflet-map}}

@@ -37,12 +37,22 @@ export default Ember.Component.extend({
           this_comp.set('userid',result[0][0].id);
           this_comp.set('username',username);
           this_comp.send('loadAccountPanel');
+          this_comp.send('updatePageVisits');
           Cookies.set('loggedOut', 'false', {expires: 7});
           Cookies.set('userid', result[0][0].id);
           Cookies.set('username', username);
         }
         else {
           alert(result.status);
+        }
+      });
+    },
+
+    updatePageVisits() {
+      this.get('ajax').request('users/updatePageVisits', {
+        method: 'POST',
+        data: {
+          day: new Date().getDay()
         }
       });
     },
