@@ -6,6 +6,7 @@ export default EmberUploader.FileField.extend({
   filesDidChange: function(files) {
     const uploader = EmberUploader.Uploader.create({
       url: 'http://localhost:8080/users/uploadImg',
+      method: 'POST',
     });
 
     if(!Ember.isEmpty(files)) {

@@ -8,19 +8,7 @@ export default Ember.Component.extend({
     }
     return true;
   }.property(),
-  avatarURL: function() {
-    var this_comp = this;
-    this.get('ajax').request('users/downloadImg', {
-      method: 'POST',
-      data: {
-        id: this_comp.userid
-      }
-    }).then(function(result) {
-      console.log(result.url);
-      this_comp.set('avatarURL', result.url);
-      return result.url;
-    });
-  }.property(),
+  avatarURL: null,
   username: null,
   ajax: Ember.inject.service(),
   userid: null,
@@ -49,6 +37,7 @@ export default Ember.Component.extend({
           this_comp.set('userid',result[0][0].id);
           this_comp.set('username',username);
           this_comp.send('loadAccountPanel');
+          this_comp.send('updatePageVisits');
           Cookies.set('loggedOut', 'false', {expires: 7});
           Cookies.set('userid', result[0][0].id);
           Cookies.set('username', username);
@@ -59,11 +48,33 @@ export default Ember.Component.extend({
       });
     },
 
+    updatePageVisits() {
+      this.get('ajax').request('users/updatePageVisits', {
+        method: 'POST',
+        data: {
+          day: new Date().getDay()
+        }
+      });
+    },
+
     loadAccountPanel() {
       if(Cookies.get('userid') != null) {
         this.set('userid', Cookies.get('userid'));
         this.set('username', Cookies.get('username'));
       }
+      this.send('getAvatar');
+    },
+
+    getAvatar() {
+      var this_comp = this;
+      this.get('ajax').request('users/downloadImg', {
+        method: 'POST',
+        data: {
+          id: this_comp.userid
+        }
+      }).then(function(result) {
+        this_comp.set('avatarURL', result.url);
+      });
     },
 
     logout() {
