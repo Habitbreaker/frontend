@@ -2,6 +2,8 @@
  * Dark theme for Highcharts JS
  * @author Torstein Honsi
  */
+ /* jshint ignore:start */
+ // Code here will be ignored by JSHint.
 
 export default {
 	colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
@@ -201,3 +203,4 @@ export default {
 	contrastTextColor: '#F0F0F3',
 	maskColor: 'rgba(255,255,255,0.3)'
 };
+/* jshint ignore:end */

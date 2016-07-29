@@ -20,6 +20,6 @@ test('should render input fields', function(assert) {
 test('should render account panel', function(assert) {
   this.render(hbs`{{log-in loggedOut=false avatarURL='http://localhost:8080/avatar/Default.jpeg'}}`);
   assert.equal(this.$('p:first-of-type').text(),'Welcome back');
-  assert.equal(this.$('a').text(),' Account Log me out');
-  assert.equal(this.$('#avatar-img').attr('src'),'http://localhost:8080/avatar/Default.jpeg');
+  assert.equal(this.$('a').text(),' Account   Log out');
+  assert.equal(this.$('.avatar-img').attr('src'),'http://localhost:8080/avatar/Default.jpeg');
 });

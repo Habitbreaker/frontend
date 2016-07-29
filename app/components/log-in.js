@@ -2,6 +2,9 @@ import Ember from 'ember';
 import Cookies from 'ember-cli-js-cookie';
 
 export default Ember.Component.extend({
+  notify: Ember.inject.service('notify'),
+  ajax: Ember.inject.service(),
+  userOnline: Ember.inject.service('user-online'),
   loggedOut: function() {
     if(Cookies.get('loggedOut') != null) {
       return Cookies.get('loggedOut') === 'true';
@@ -10,9 +13,7 @@ export default Ember.Component.extend({
   }.property(),
   avatarURL: null,
   username: null,
-  ajax: Ember.inject.service(),
   userid: null,
-  userOnline: Ember.inject.service('user-online'),
   tagName: '',
   actions: {
     refreshIndex() {
@@ -32,6 +33,7 @@ export default Ember.Component.extend({
         }
       }).then(function(result) {
         if(result.status === 'Logged in!') {
+          this_comp.get('notify').success(result.status);
           this_comp.toggleProperty('loggedOut');
           service_User.changeStatusOnline(username);
           this_comp.set('userid',result[0][0].id);
@@ -39,11 +41,12 @@ export default Ember.Component.extend({
           this_comp.send('loadAccountPanel');
           this_comp.send('updatePageVisits');
           Cookies.set('loggedOut', 'false', {expires: 7});
-          Cookies.set('userid', result[0][0].id);
-          Cookies.set('username', username);
+          Cookies.set('userid', result[0][0].id, {expires: 7});
+          Cookies.set('username', username, {expires: 7});
+          this_comp.get('userOnline').getOnlineUsers();
         }
         else {
-          alert(result.status);
+          this_comp.get('notify').error(result.status);
         }
       });
     },
@@ -78,17 +81,14 @@ export default Ember.Component.extend({
     },
 
     logout() {
+      this.get('notify').success('Logged out!');
       var this_comp = this;
       this.get('userOnline').changeStatusOffline(this_comp.username);
       this.toggleProperty('loggedOut');
       Cookies.remove('loggedOut', { path: ''});
       Cookies.remove('userid', { path: ''});
       Cookies.remove('username', { path: ''});
-    },
-
-    testStuff() {
-      this.set('avatarURL', 'http://localhost:8080/avatar/' + 'Default' + '.jpeg');
-      this.set('avatarURL', 'http://localhost:8080/avatar/' + this.userid + '.jpeg');
+      this.get('userOnline').getOnlineUsers();
     },
   },
 

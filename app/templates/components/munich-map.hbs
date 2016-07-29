@@ -2,8 +2,10 @@
   {{tile-layer url="http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png" }}
 
   {{#marker-layer lat=gefasoft.lat lng=gefasoft.lng popupOpen=(readonly gefasoft.isOpen) onDblclick=(action "zoomIn")}}
+    <div class="gefasoft-marker">
     <h3>{{gefasoft.name}}</h3>
     <p>{{gefasoft.adr}}</p>
+  </div>
   {{/marker-layer}}
 
 {{/leaflet-map}}

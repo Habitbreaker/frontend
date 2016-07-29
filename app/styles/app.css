@@ -1,3 +1,6 @@
+.container {
+  width: 80%;
+}
 .navbar-inverse .navbar-nav .open .dropdown-menu {
   background-color: black;
   padding: 5px;
@@ -7,26 +10,24 @@
   width: 124px;
   height: 50px;
 }
-
-#login {
+.login {
   padding-left: 20px;
   text-align: right;
 }
-#account .dropdown-menu, #login .dropdown-menu {
+.account .dropdown-menu, .login .dropdown-menu {
   color: #fff;
   min-width: 200px;
-
   font-family: arial;
   padding: 5px;
   overflow: hidden;
 }
-#account .btn {
+.account .btn {
   margin-top: 30px;
 }
-#account .row p {
+.account .row p {
   font-family: arial;
 }
-#account .text-center {
+.account .text-center {
   color: white;
 }
 .imageUpload {
@@ -37,9 +38,9 @@
 }
 .register {
   font-family: arial;
-  width: 400px;
+  width: 50%;
+  min-width: 300px;
   height: 400px;
-
   position: relative;
   top: 150px;
   bottom: 0;
@@ -47,17 +48,12 @@
   right: 0;
   margin: auto;
 }
-.register h3 {
-  text-align: center;
-font-size: 26px;
-}
 .register .btn {
   border-radius: 1px;
 }
 .register .form {
   color: #337ab7;
   margin: 10px;
-
 }
 .register .form-control {
   border-radius: 1px;
@@ -65,39 +61,99 @@ font-size: 26px;
   border-color: grey;
 }
 .register .form-group {
-
   margin: 10px;
 }
-.online-container li{
+.online-container li {
   font-size: 25px;
 }
-.online-container tspan{
+.online-container tspan {
   font-size: 36px;
 }
-#avatar img{
+.avatar img {
   width: 80px;
   height: 80px;
   border-radius: 4px;
 }
-#index-row {
+.index-row {
   position: relative;
-  top: 590px;
   bottom: 0;
   right: 0;
   left: 0;
+  top: 370px;
   margin: auto;
-  background: white;
-  height: 600px;
-  border-radius: 4px;
-
+  height: 500px;
+  width: 100%;
+}
+.index-row tspan {
+  color: #70B3DB;
+}
+.index-row li {
+  color: rgb(37, 139, 226);
 }
 .leaflet-container {
-  position: fixed;
-  height: 1080px;
+  position: absolute;
+  height: 320px;
   width: 100%;
   top: 50px;
   bottom: 0;
   left: 0;
   right: 0;
-
+}
+.gefasoft-marker p {
+  color: rgb(37, 139, 226);
+}
+.gefasoft-marker {
+  color: #70B3DB;
+}
+.leaflet-popup-content-wrapper {
+  background-color: #0e232e;
+}
+.mysql-db {
+  width: 100%;
+  top: 60px;
+  position: relative;
+  margin: auto;
+  height: 800px;
+}
+.server-status tspan {
+  font-size: 36px;
+}
+.server-status li {
+  font-size: 25px;
+}
+.server-status li b {
+  float: right;
+  margin-right: 13px;
+}
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 25px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  margin: 2px;
+}
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.col-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important;
+  margin: 6px;
+}
+.col-sm-custom {
+  width: 22%;
+  float: left;
+  position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.min-width-200px {
+  min-width: 300px;
 }
