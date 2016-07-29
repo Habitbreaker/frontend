@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('munich-map', 'Integration | Component | munich map', {
+moduleForComponent('server-status', 'Integration | Component | server status', {
   integration: true
 });
 
@@ -9,16 +9,16 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{munich-map}}`);
+  this.render(hbs`{{server-status}}`);
 
-  assert.equal(this.$().text().trim(), '+-Leaflet');
+  assert.notEqual(this.$().text().length, 0);
 
   // Template block usage:
   this.render(hbs`
-    {{#munich-map}}
+    {{#server-status}}
       template block text
-    {{/munich-map}}
+    {{/server-status}}
   `);
 
-  assert.equal(this.$().text().trim(), '+-Leaflet');
+  assert.notEqual(this.$().text().trim(), 'template block text');
 });

@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('register', function() {
     this.route('submitInput');
   });
+  this.route('database');
 });
 
 export default Router;
