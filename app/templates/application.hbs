@@ -13,15 +13,14 @@
               <ul class="nav navbar-nav">
                   <li>{{#link-to 'index'}}<span class="glyphicon glyphicon-home"></span>{{/link-to}}</li>
                   <li>{{#link-to 'register'}}Register{{/link-to}}</li>
+                  <li>{{#link-to 'database'}}Database{{/link-to}}</li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                   {{log-in  refreshIndex="refreshIndex"}}
               </ul>
-
           </div>
       </div>
   </nav>
-  <div class="body">
     {{outlet}}
-  </div>
+    {{ember-notify messageStyle='bootstrap'}}
 </div>

@@ -13,16 +13,21 @@ export default Ember.Component.extend({
       text: 'Page Visits',
       style: {
         fontSize: '36px',
-        fontWeight: 'normal'
+        fontWeight: 'normal',
+        color: '#70B3DB'
       }
     },
     xAxis: {
-      categories: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.', 'Sun.']
+      categories: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.', 'Sun.'],
+      title: {
+        style: {
+        }
+      }
     },
     yAxis: {
       allowDecimals: false,
       title: {
-        text: 'Visits'
+        text: 'Visits',
       }
     }
   },

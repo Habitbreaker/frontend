@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 export default {
   colors: [
     '#258be2',
@@ -106,3 +107,4 @@ export default {
     enabled: false
   }
 };
+/* jshint ignore:end */

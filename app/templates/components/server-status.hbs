@@ -1,0 +1,15 @@
+<div class="server-status">
+  <tspan>Server</tspan>
+  <ul>
+    {{#if isOnline}}
+      <li>Laravel:<b style="color:green">Online</b></li>
+      <li>Database:<b style="color:green">Online</b></li>
+    {{else if allOffline}}
+      <li>Laravel:<b style="color:red">Offline</b></li>
+      <li>Database:<b>Unknown</b></li>
+    {{else}}
+    <li>Laravel:<b style="color:green">Online</b></li>
+    <li>Database:<b style="color:red">Offline</b></li>
+    {{/if}}
+  </ul>
+</div>
